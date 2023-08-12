@@ -1,0 +1,6 @@
+- Create a Virtual Network named **dccVNet** with CIDR block **192.168.0.0/16**
+- there should be 2 subnets **FrontEnd-Subnet** with CIDR block **192.168.1.0/24 ** and **BackEnd-Subnet** with CIDR block **192.168.1.0/24**
+- **FrontEnd-nsg**    - RDP Allow, Web Allow
+- **BackEnd-nsg**     - SQL Allow, RD Allow, Web Deny      
+- Associate the NSG to **FrontEnd-subnet** and **BackEnd-subnet** respectivly
+- 
