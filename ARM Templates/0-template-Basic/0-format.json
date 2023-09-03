@@ -1,0 +1,9 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "<content-version>",
+    "parameters": { /* Define parameters here */ },
+    "variables": { /* Define variables here */ },
+    "resources": [ /* Define resources here */ ],
+    "outputs": { /* Define outputs here */ }
+  }
+  

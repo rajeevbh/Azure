@@ -1,0 +1,51 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "webAppName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the web app"
+        }
+      },
+      "appServicePlanName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the app service plan"
+        }
+      }
+    },
+    "resources": [
+      {
+        "type": "Microsoft.Web/sites",
+        "apiVersion": "2021-01-15",
+        "name": "[parameters('webAppName')]",
+        "location": "East US",
+        "properties": {
+          "name": "[parameters('webAppName')]",
+          "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]"
+        },
+        "dependsOn": [
+          "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]"
+        ]
+      },
+      {
+        "type": "Microsoft.Web/serverfarms",
+        "apiVersion": "2021-01-15",
+        "name": "[parameters('appServicePlanName')]",
+        "location": "East US",
+        "sku": {
+          "name": "S1",
+          "tier": "Standard",
+          "size": "S1",
+          "family": "S",
+          "capacity": 1
+        },
+        "properties": {
+          "name": "[parameters('appServicePlanName')]"
+        }
+      }
+    ],
+    "outputs": {}
+  }
+  
